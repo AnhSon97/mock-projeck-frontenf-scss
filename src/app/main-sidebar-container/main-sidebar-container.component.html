@@ -9,13 +9,13 @@
       <ul class="list-unstyled components">
         <p><i class="far fa-user"></i><span>Nguyễn Anh Sơn</span></p>
         <li class="active">
-          <a href="#"><i class="fas fa-home"></i>Home</a>
+          <a [routerLink]="[ '/logged']"><i class="fas fa-home"></i>Home</a>
         </li>
         <li>
-          <a href="#"><i class="fas fa-plus"></i>Account</a>
+          <a [routerLink]="[ '/account' ]"><i class="fas fa-plus"></i>Account</a>
         </li>
         <li>
-          <a href="#" ><i class="fas fa-users"></i>Group</a>
+          <a [routerLink]="[ '/group' ]"><i class="fas fa-users"></i>Group</a>
         </li>
       </ul>
 
@@ -66,3 +66,4 @@
     </div>
   </div>
 </div>
+

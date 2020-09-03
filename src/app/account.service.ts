@@ -18,7 +18,7 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   // link serve:
-  private accountURL = "";
+  private accountURL = " http://localhost:3000/account";
 
   getData(): Observable<Account[]> {
     return this.http.get<Account[]>(this.accountURL).pipe(

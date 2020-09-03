@@ -1,4 +1,3 @@
-<p>account-manager works!</p>
 <div class="side-bar">
   <div class="wrapper">
     <!-- Sidebar  -->
@@ -45,34 +44,60 @@
 
       <div class="container">
         <div>
-          <a data-toggle="modal" data-target="#elegantModalForm"><button type="button" class="btn btn-info">Create Account</button></a>
+          <a data-toggle="modal" data-target="#elegantModalForm"><button type="button" class="btn btn-info">Create
+              Account</button></a>
         </div>
-        <br>
-        <input class="form-control" id="myInput" type="text" placeholder="Search..">
         <br>
         <div class="row">
           <div class="col-sm-12">
-            <table class="table table-dark table-striped">
+            <table id="dtBasicExample" class="table table-striped table-bordered table-sm text-center" cellspacing="0" width="100%">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>FullName</th>
-                  <th>Age</th>
-                  <th>Email</th>
-                  <th>PhoneNumber</th>
-                  <th>Action</th>
+                  <th class="th-sm">ID
+                  </th>
+                  <th class="th-sm">FullName
+                  </th>
+                  <th class="th-sm">Age
+                  </th>
+                  <th class="th-sm">Email
+                  </th>
+                  <th class="th-sm">Phone Number
+                  </th>
+                  <th class="th-sm">Action
+                  </th>
                 </tr>
               </thead>
-              <tbody id="myTable">
+
+              <tbody>
                 <tr *ngFor="let item of account">
-                  <th>{{item.id}}</th>
-                  <th>{{item.fullname}}</th>
-                  <th>{{item.age}}</th>
-                  <th>{{item.email}}</th>
-                  <th>{{item.phonenumber}}</th>
-                  <th>{{item.action}}</th>
+                  <td>{{item.id}}</td>
+                  <td>{{item.fullname}}</td>
+                  <td>{{item.age}}</td>
+                  <td>{{item.email}}</td>
+                  <td>{{item.phonenumber}}</td>
+                  <td>
+                    <button type="button" class="btn btn-outline-info" style="margin-right: 5px;" > <i class="fas fa-cogs"></i> </button>
+                    <button type="button" class="btn btn-outline-info"><i class="fas fa-trash-alt" (click)="delete(item.id)"></i></button>
+                  </td>
                 </tr>
               </tbody>
+
+              <tfoot>
+                <tr>
+                  <th class="th-sm">ID
+                  </th>
+                  <th class="th-sm">FullName
+                  </th>
+                  <th class="th-sm">Age
+                  </th>
+                  <th class="th-sm">Email
+                  </th>
+                  <th class="th-sm">Phone Number
+                  </th>
+                  <th class="th-sm">Action
+                  </th>
+                </tr>
+              </tfoot>
             </table>
           </div>
         </div>
@@ -93,7 +118,8 @@
         <span aria-hidden="true">&times;</span>
       </button>
       <div class="modal-header text-center">
-        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Thêm Account</strong>
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Thêm
+            Account</strong>
         </h3>
       </div>
       <!--Body-->
@@ -101,25 +127,23 @@
         <!--Body-->
         <div class="md-form mb-5">
           <label data-error="wrong" data-success="right" for="Form-email1">FullName</label>
-          <input type="text" id="Form-email1" class="form-control validate" #FullName>
+          <input [(ngModel)]="newAcc.fullname" id="Form-email1" class="form-control validate"  >
           <br>
           <label data-error="wrong" data-success="right" for="Form-pass1">Age</label>
-          <input type="text" id="Form-pass1" class="form-control validate" #Age>
+          <input  id="Form-pass1" class="form-control validate" [(ngModel)]="newAcc.age">
           <br>
           <label data-error="wrong" data-success="right" for="Form-pass1">Email</label>
-          <input type="text" id="Form-pass1" class="form-control validate" #Email>
+          <input  id="Form-pass1" class="form-control validate"  [(ngModel)]="newAcc.email">
           <br>
           <label data-error="wrong" data-success="right" for="Form-pass1">PhoneNumber</label>
-          <input type="text" id="Form-pass1" class="form-control validate" #PhoneNumber>
+          <input  id="Form-pass1" class="form-control validate"  [(ngModel)]="newAcc.phonenumber">
         </div>
 
         <div class="text-center mb-3">
-          <button type="button" class="btn-sing-in btn blue-gradient btn-block btn-rounded z-depth-1a"
-          >Hoàn tất</button>
+          <button type="button" class="btn-sing-in btn blue-gradient btn-block btn-rounded z-depth-1a" (click)="addAcc()">Hoàn tất</button>
         </div>
+      </div>
+      <!--/.Content-->
     </div>
-    <!--/.Content-->
   </div>
-</div>
-<!-- Modal -->
-
+  <!-- Modal -->

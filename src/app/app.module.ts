@@ -12,6 +12,9 @@ import { AccountManagerComponent } from './account-manager/account-manager.compo
 import { HttpClientModule } from '@angular/common/http';
 import { from } from 'rxjs';
 import { GroupManagerComponent } from './group-manager/group-manager.component';
+import { DetailAccountComponent } from './detail-account/detail-account.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -21,16 +24,19 @@ import { GroupManagerComponent } from './group-manager/group-manager.component';
     NavBarComponent,
     MainSidebarContainerComponent,
     AccountManagerComponent,
-    GroupManagerComponent
+    GroupManagerComponent,
+    DetailAccountComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     AuthGuard,
     AccountService,
-    HttpClientModule
+
   ],
   bootstrap: [AppComponent]
 })

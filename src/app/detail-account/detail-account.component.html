@@ -1,1 +1,28 @@
-<p>detail-account works!</p>
+
+<div class="modal-header text-center">
+  <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Thêm
+      Account</strong>
+  </h3>
+</div>
+<!--Body-->
+<div class="modal-body mx-4">
+  <!--Body-->
+  <div class="md-form mb-5">
+    <label data-error="wrong" data-success="right" for="Form-email1">FullName</label>
+    <input [(ngModel)]="account.fullname" id="Form-email1" class="form-control validate"  >
+    <br>
+    <label data-error="wrong" data-success="right" for="Form-pass1">Age</label>
+    <input  id="Form-pass1" class="form-control validate" [(ngModel)]="account.age">
+    <br>
+    <label data-error="wrong" data-success="right" for="Form-pass1">Email</label>
+    <input  id="Form-pass1" class="form-control validate"  [(ngModel)]="account.email">
+    <br>
+    <label data-error="wrong" data-success="right" for="Form-pass1">PhoneNumber</label>
+    <input  id="Form-pass1" class="form-control validate"  [(ngModel)]="account.phonenumber">
+  </div>
+
+  <div class="row">
+    <div class="col-sm-1"><button type="button" class="btn btn-primary" (click)="save()">Save</button></div>
+    <div class="col-sm-1"><button type="button" class="btn btn-success" (click)="goback()"> back </button></div>
+  </div>
+</div>

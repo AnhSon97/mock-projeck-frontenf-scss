@@ -10,10 +10,12 @@ import { MainSidebarContainerComponent } from './main-sidebar-container/main-sid
 import { AccountService } from '../app/account.service';
 import { AccountManagerComponent } from './account-manager/account-manager.component';
 import { HttpClientModule } from '@angular/common/http';
-import { from } from 'rxjs';
 import { GroupManagerComponent } from './group-manager/group-manager.component';
 import { DetailAccountComponent } from './detail-account/detail-account.component';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './auth.service';
+import { AdminService } from './admin.service';
+import { from } from 'rxjs';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { FormsModule } from '@angular/forms';
   providers: [
     AuthGuard,
     AccountService,
-
+    AuthService,
+    AdminService,
+    LoginComponent
   ],
   bootstrap: [AppComponent]
 })

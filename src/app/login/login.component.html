@@ -14,13 +14,13 @@
       <!-- Email -->
       <div class="md-form">
         <label for="materialLoginFormEmail">E-mail</label>
-        <input type="email" id="materialLoginFormEmail" class="form-control">
+        <input type="text" id="materialLoginFormEmail" class="form-control" [(ngModel)]="admin.email" [ngModelOptions]="{standalone: true}">
       </div>
 
       <!-- Password -->
       <div class="md-form">
         <label for="materialLoginFormPassword">Password</label>
-        <input type="password" id="materialLoginFormPassword" class="form-control">
+        <input type="password" id="materialLoginFormPassword" class="form-control" [(ngModel)]="admin.pass" [ngModelOptions]="{standalone: true}">
       </div>
 
       <div class="d-flex justify-content-around">
@@ -40,7 +40,7 @@
       <!-- Sign in button -->
 
       <a [routerLink]="[ '/logged' ]"><button
-        class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="button">Sign in</button></a>
+        class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="button" >Sign in</button></a>
 
       <!-- Register -->
       <p>Not a member?

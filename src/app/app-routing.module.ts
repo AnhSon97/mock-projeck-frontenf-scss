@@ -5,21 +5,19 @@ import { MainSidebarContainerComponent } from './main-sidebar-container/main-sid
 import { AccountManagerComponent } from './account-manager/account-manager.component';
 import { GroupManagerComponent } from './group-manager/group-manager.component';
 import { DetailAccountComponent } from './detail-account/detail-account.component';
+import { AuthGuard } from './auth.guard';
 
 
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
-  { path: "logged", component: MainSidebarContainerComponent },
+  { path: "logged", component: MainSidebarContainerComponent,canActivate: [AuthGuard]},
   { path: "account", component: AccountManagerComponent },
   { path: "group", component: GroupManagerComponent},
-  { path: "ditail/:id", component: DetailAccountComponent}
+  { path: "ditails/:id", component: DetailAccountComponent}
   ];
 
 
-
-
-  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

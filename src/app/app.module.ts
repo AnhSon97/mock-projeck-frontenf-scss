@@ -15,6 +15,7 @@ import { DetailAccountComponent } from './detail-account/detail-account.componen
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { AdminService } from './admin.service';
+import { GroupService } from './group-service/group.service';
 import { from } from 'rxjs';
 
 
@@ -40,7 +41,8 @@ import { from } from 'rxjs';
     AccountService,
     AuthService,
     AdminService,
-    LoginComponent
+    LoginComponent,
+    GroupService
   ],
   bootstrap: [AppComponent]
 })

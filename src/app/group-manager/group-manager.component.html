@@ -11,7 +11,7 @@
         <li>
           <a [routerLink]="[ '/logged']"><i class="fas fa-home"></i>Home</a>
         </li>
-        <li >
+        <li>
           <a [routerLink]="[ '/account' ]"><i class="fas fa-plus"></i>Account</a>
         </li>
         <li class="active">
@@ -39,13 +39,12 @@
             <i class="fas fa-align-left"></i>
             <span>Toggle Sidebar</span>
           </button>
+          <a data-toggle="modal" data-target="#elegantModalForm"><button type="button" class="btn btn-info">Create
+              Group</button></a>
         </div>
       </nav>
 
       <div class="container">
-        <div>
-          <a data-toggle="modal" data-target="#elegantModalForm"><button type="button" class="btn btn-info">Create Group</button></a>
-        </div>
         <br>
         <input class="form-control" id="myInput" type="text" placeholder="Search..">
         <br>
@@ -58,14 +57,23 @@
                   <th>Group Name</th>
                   <th>Team Leader</th>
                   <th>Create Date</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody id="myTable">
                 <tr *ngFor="let item of group">
-                  <th>{{item.id}}</th>
-                  <th>{{item.groupname}}</th>
-                  <th>{{item.teamleader}}</th>
-                  <th>{{item.createdate}}</th>
+                  <td>{{item.id}}</td>
+                  <td>{{item.groupname}}</td>
+                  <td>{{item.teamleader}}</td>
+                  <td>{{item.createdate}}</td>
+                  <td>
+                    <a><button type="button" class="btn btn-outline-info" style="margin-right: 5px;">
+                        <i class="fas fa-cogs"></i>
+                      </button></a>
+                    <button type="button" class="btn btn-outline-info" (click)="deleteGroup(item.id)">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -77,15 +85,15 @@
     </div>
   </div>
 </div>
-<!-- Modal -->
+<!------------------------------------------------------------ Modal --------------------------------------------------------->
 <div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
+  aria-hidden="true" [hidden] = "submited" >
   <div class="modal-dialog" role="document">
     <!--Content-->
     <div class="modal-content form-elegant">
       <!--Header-->
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
+        x
       </button>
       <div class="modal-header text-center">
         <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Thêm Group</strong>
@@ -96,22 +104,22 @@
         <!--Body-->
         <div class="md-form mb-5">
           <label data-error="wrong" data-success="right" for="Form-email1">Group Name</label>
-          <input type="text" id="Form-email1" class="form-control validate" #groupname>
+          <input type="text" [(ngModel)]="newGroup.groupname" id="Form-email1" class="form-control validate">
           <br>
           <label data-error="wrong" data-success="right" for="Form-pass1">Team Leader</label>
-          <input type="text" id="Form-pass1" class="form-control validate" #teamleader>
+          <input type="text" [(ngModel)]="newGroup.teamleader" id="Form-pass1" class="form-control validate">
           <br>
           <label data-error="wrong" data-success="right" for="Form-pass1">Create Date</label>
-          <input type="text" id="Form-pass1" class="form-control validate" #createdate>
+          <input type="text" [(ngModel)]="newGroup.createdate" id="Form-pass1" class="form-control validate">
         </div>
 
         <div class="text-center mb-3">
           <button type="button" class="btn-sing-in btn blue-gradient btn-block btn-rounded z-depth-1a"
-          >Hoàn tất</button>
+            (click)="addGroup()" data-dismiss="modal" aria-label="Close" >Hoàn tất</button>
         </div>
-    </div>
-    <!--/.Content-->
-  </div>
-</div>
-<!-- Modal -->
 
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+  <!--------------------------------------------------------------- Modal ----------------------------------------------------->

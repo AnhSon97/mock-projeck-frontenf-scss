@@ -1,5 +1,5 @@
 export class Group {
-  id: string;
+  id: number;
   groupname: string;
   teamleader: string;
   createdate: string;

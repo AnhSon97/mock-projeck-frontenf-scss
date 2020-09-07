@@ -34,7 +34,8 @@ import { from } from 'rxjs';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [
     AuthGuard,

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from '../../model/account';
 import { AccountService } from '../account.service';
+import { RoleAccount } from '../../model/roleaccount';
+  import { from } from 'rxjs';
 
 
 @Component({
@@ -11,6 +13,8 @@ import { AccountService } from '../account.service';
 export class AccountManagerComponent implements OnInit{
 
   public account: Account[];
+
+  roleAcc = new RoleAccount;
 
   newAcc = new Account;
 
@@ -28,4 +32,9 @@ export class AccountManagerComponent implements OnInit{
     this.accountService.addData(this.newAcc).subscribe(i => this.account.push(i));
   }
 
+  roleAccount(fullName: string, email: string){
+    this.roleAcc.fullname = fullName;
+    this.roleAcc.usename = email;
+    this.roleAcc.pass = "dangnhap";
+  }
 }

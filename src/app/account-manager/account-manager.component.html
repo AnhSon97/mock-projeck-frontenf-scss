@@ -41,7 +41,7 @@
             <span>Toggle Sidebar</span>
           </button>
           <a data-toggle="modal" data-target="#elegantModalForm"><button type="button" class="btn btn-info">Create
-            Account</button></a>
+              Account</button></a>
 
         </div>
       </nav>
@@ -79,7 +79,9 @@
                         style="margin-right: 5px;"> <i class="fas fa-cogs"></i> </button></a>
                     <button type="button" class="btn btn-outline-info" (click)="delete(item.id)"><i
                         class="fas fa-trash-alt"></i></button>
-                    <button type="button" class="btn btn-outline-info"><i class="fas fa-user-circle"></i></button>
+                    <a data-toggle="modal" data-target="#elegantRoleForm"><button type="button"
+                        class="btn btn-outline-info" (click)="roleAccount(item.fullname, item.email)"><i
+                          class="fas fa-user-circle"></i></button></a>
                   </td>
                 </tr>
               </tbody>
@@ -108,45 +110,89 @@
       <app-footer></app-footer>
     </div>
   </div>
-</div>
-<!------------------------------------------------------------ Modal ----------------------------------------------------------->
-<div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <!--Content-->
-    <div class="modal-content form-elegant">
-      <!--Header-->
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <div class="modal-header text-center">
-        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Thêm
-            Account</strong>
-        </h3>
-      </div>
-      <!--Body-->
-      <div class="modal-body mx-4">
+  <!------------------------------------------------------------ Create ----------------------------------------------------------->
+  <div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <!--Content-->
+      <div class="modal-content form-elegant">
+        <!--Header-->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-header text-center">
+          <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Thêm
+              Account</strong>
+          </h3>
+        </div>
         <!--Body-->
-        <div class="md-form mb-5">
-          <label data-error="wrong" data-success="right" for="Form-email1">FullName</label>
-          <input [(ngModel)]="newAcc.fullname" id="Form-email1" class="form-control validate">
-          <br>
-          <label data-error="wrong" data-success="right" for="Form-pass1">Age</label>
-          <input id="Form-pass1" class="form-control validate" [(ngModel)]="newAcc.age">
-          <br>
-          <label data-error="wrong" data-success="right" for="Form-pass1">Email</label>
-          <input id="Form-pass1" class="form-control validate" [(ngModel)]="newAcc.email">
-          <br>
-          <label data-error="wrong" data-success="right" for="Form-pass1">PhoneNumber</label>
-          <input id="Form-pass1" class="form-control validate" [(ngModel)]="newAcc.phonenumber">
-        </div>
+        <div class="modal-body mx-4">
+          <!--Body-->
+          <div class="md-form mb-5">
+            <label data-error="wrong" data-success="right" for="Form-email1">FullName</label>
+            <input [(ngModel)]="newAcc.fullname" id="Form-email1" class="form-control validate">
+            <br>
+            <label data-error="wrong" data-success="right" for="Form-pass1">Age</label>
+            <input id="Form-pass1" class="form-control validate" [(ngModel)]="newAcc.age">
+            <br>
+            <label data-error="wrong" data-success="right" for="Form-pass1">Email</label>
+            <input id="Form-pass1" class="form-control validate" [(ngModel)]="newAcc.email">
+            <br>
+            <label data-error="wrong" data-success="right" for="Form-pass1">PhoneNumber</label>
+            <input id="Form-pass1" class="form-control validate" [(ngModel)]="newAcc.phonenumber">
+          </div>
 
-        <div class="text-center mb-3">
-          <button type="button" class="btn-sing-in btn blue-gradient btn-block btn-rounded z-depth-1a"
-            (click)="addAcc()" data-dismiss="modal" aria-label="Close" >Hoàn tất</button>
+          <div class="text-center mb-3">
+            <button type="button" class="btn-sing-in btn blue-gradient btn-block btn-rounded z-depth-1a"
+              (click)="addAcc()" data-dismiss="modal" aria-label="Close">Hoàn tất</button>
+          </div>
         </div>
+        <!--/.Content-->
       </div>
-      <!--/.Content-->
     </div>
+    <!---------------------------------------------------------- Create ------------------------------>
   </div>
-  <!---------------------------------------------------------- Modal ----------------------------------------------------------->
+
+  <!------------------------------------------------------------ Role ----------------------------------------------------------->
+  <div class="modal fade" id="elegantRoleForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <!--Content-->
+      <div class="modal-content form-elegant">
+        <br>
+        <!--Header-->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-header text-center">
+          <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Role
+              Account</strong>
+          </h3>
+        </div>
+        <!--Body-->
+        <div class="modal-body mx-4">
+          <!--Body-->
+          <div class="md-form mb-5">
+            <label data-error="wrong" data-success="right" for="Form-email1">User Name</label>
+            <input id="Form-email1" class="form-control validate" [(ngModel)]="roleAcc.usename">
+            <br>
+            <label data-error="wrong" data-success="right" for="Form-pass1">Pass Word</label>
+            <input id="Form-pass1" class="form-control validate" [(ngModel)]="roleAcc.pass">
+            <br>
+            <label data-error="wrong" data-success="right" for="Form-pass1">Full Name</label>
+            <input id="Form-pass1" class="form-control validate" [(ngModel)]="roleAcc.fullname">
+            <br>
+            <p style="text-align: center; color: #000;">Role Account</p>
+            <input type="checkbox" value="teamLead" id="Form-pass1"><span>-</span>
+            <label data-error="wrong" data-success="right" for="Form-pass1">Team Lead</label><br>
+
+            <input type="checkbox" value="Advisory" id="Form-pass1"><span>-</span>
+            <label data-error="wrong" data-success="right" for="Form-pass1">Advisory</label>
+          </div>
+          <div class="text-center mb-3">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Save</button>
+          </div>
+        </div>
+        <!--/.Content-->
+      </div>
+    </div>

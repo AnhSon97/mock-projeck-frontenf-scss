@@ -14,7 +14,7 @@ export class GroupManagerComponent implements OnInit {
 
   constructor(private groupService: GroupService) { }
 
-  public group: Group[];
+  public group: Group [];
 
   submited = false;
 
